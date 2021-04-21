@@ -81,13 +81,19 @@ const Ocr = () => {
         <motion.div
           className="card"
           id="ocrCard"
-          animate={{
-            opacity: [0, 1],
-            scale: [1.5, 1],
-            rotate: [50, 0],
-            borderRadius: ["25px", "15px"]
+          initial={{
+            opacity: 0,
+            scale: 1.5,
+            rotate: 50,
+            borderRadius: "25px"
           }}
-          transition={{ delay: 0.5 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            rotate: 0,
+            borderRadius: "15px"
+          }}
+          transition={{ type: "spring", stiffness: 90, delay: 0.5 }}
         >
           <div className="upload">
             <div
@@ -127,11 +133,15 @@ const Ocr = () => {
         </motion.div>
       </section>
       <motion.section
-        animate={{
-          y: [100, 0],
-          opacity: [0, 1],
+        initial={{
+          y: 100,
+          opacity: 0,
         }}
-        transition={{ type: "spring", stiffness: 90, delay: 1.5 }}
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{ type: "spring", stiffness: 90, delay: 1 }}
       >
         <Select className="select" classNamePrefix="reactSelect" placeholder="Language" instanceId="lselect"
           options={languages} value={language} onChange={item => setLanguage(item)} />

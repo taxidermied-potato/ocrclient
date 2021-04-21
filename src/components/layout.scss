@@ -132,14 +132,13 @@ a {
 
 main {
   flex-grow: 1;
-  padding: 2rem 0;
-  padding-bottom: 8rem;
+  padding: 8rem 0;
   margin: 0 auto;
   text-align: center;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 section {
@@ -156,13 +155,12 @@ section {
 }
 
 .large {
-  padding: 14rem 0;
+  padding: 20rem 0;
 }
 
 @media only screen and (max-width: 600px) {
   main {
-    padding-bottom: 5rem;
-    padding-top: 1rem;
+    padding: 2rem 0;
   }
 
   section {

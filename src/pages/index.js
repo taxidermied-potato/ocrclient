@@ -13,9 +13,13 @@ const IndexPage = () => {
       <section>
         <motion.div
           className="smallContainer"
+          initial={{
+            x: -100,
+            opacity: 0
+          }}
           animate={{
-            x: [-100, 0],
-            opacity: [0, 1],
+            x: 0,
+            opacity: 1,
           }}
           transition={{ type: "spring", stiffness: 90 }}
         >
