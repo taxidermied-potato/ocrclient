@@ -1,0 +1,620 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans|Orelega+One&display=swap");
+@import "themes.scss";
+
+$background: $darkBack;
+$foreground: $darkFront;
+$primaryColor: $darkText;
+$secondaryColor: $darkMuted;
+
+// Transitions and animations
+/* #region */
+
+.pop {
+  cursor: pointer;
+  transition: all 0.15s ease-out 0s !important;
+}
+
+.pop:hover {
+  transform: translateY(-1.75px);
+}
+
+.pop:active {
+  transform: translateY(0px);
+}
+
+/* #endregion */
+
+// Top level elements (gatsby, html, body, p, h1, a, etc)
+/* #region */
+
+#___gatsby,
+#gatsby-focus-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+}
+
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+p {
+  margin: 0 0;
+  margin-bottom: 0.5rem;
+  color: $secondaryColor;
+
+  a {
+    color: $highlight;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  span {
+    font-family: "Orelega One", cursive;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 600;
+    color: $primaryColor;
+  }
+}
+
+h1 {
+  font-family: "Orelega One", cursive;
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1rem;
+  font-weight: lighter !important;
+  margin: 0;
+
+  color: $secondaryColor;
+}
+
+a {
+  @extend .pop;
+
+  color: $primaryColor;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+/* #endregion */
+
+// Layout elements (layout, main, sections, containers)
+/* #region */
+
+.layoutBody {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  color: $primaryColor;
+  background: $background;
+}
+
+main {
+  flex-grow: 1;
+  padding: 2rem 0;
+  padding-bottom: 8rem;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  padding: 1rem 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .smallContainer {
+    margin: 0;
+    width: 250px;
+  }
+}
+
+.large {
+  padding: 14rem 0;
+}
+
+@media only screen and (max-width: 600px) {
+  main {
+    padding-bottom: 5rem;
+    padding-top: 1rem;
+  }
+
+  section {
+    padding: 0.5rem;
+    flex-direction: column;
+  }
+}
+
+/* #endregion */
+
+// Header
+/* #region */
+
+header {
+  padding: 1rem 0;
+}
+
+nav {
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1.5rem;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  .hline {
+    font-size: 1rem;
+    margin: 0 0.5rem;
+    padding-bottom: 0.4rem;
+    color: rgb(128, 136, 155);
+  }
+
+  h2:hover {
+    color: $primaryColor;
+  }
+
+  a {
+    margin: 0 0.5rem;
+  }
+}
+
+.logo {
+  @extend .flex;
+
+  img {
+    width: 6rem;
+  }
+}
+
+.mobileLinks {
+  display: none;
+}
+
+.desktopLinks {
+  display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  .mobileLinks {
+    display: flex;
+  }
+
+  .desktopLinks,
+  .hline {
+    display: none;
+  }
+
+  .nav {
+    padding: 1.5rem 1rem;
+
+    span {
+      padding-bottom: 0.2rem;
+      font-size: 0.5rem;
+    }
+
+    .ant-switch-inner {
+      font-size: 0.75rem;
+    }
+  }
+
+  .logo {
+    img {
+      width: 5rem;
+    }
+  }
+}
+
+/* #endregion */
+
+// Button
+/* #region */
+
+button {
+  @extend .pop;
+  font-family: "Nunito Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+
+  margin: 0rem 0.5rem;
+  padding: 0.25rem 1.25rem;
+  border: 1px solid $highlight;
+  border-radius: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease-out 0s !important;
+  cursor: pointer;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.25));
+
+  background: $highlight;
+  color: white;
+
+  svg {
+    font-size: 1.25rem;
+    margin-right: 0.25rem;
+    margin-left: -0.25rem;
+  }
+}
+
+button:focus {
+  // outline: 1px dashed white;
+}
+
+.btnGroup {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+
+  button {
+    margin: 0 0.4rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .btnGroup {
+    flex-direction: column;
+
+    button {
+      margin: 0.25rem 0.4rem;
+    }
+  }
+}
+
+/* #endregion */
+
+// Card and OCR
+/* #region */
+
+.card {
+  padding: 1rem 1.5rem;
+  margin: 0.25rem 0.5rem;
+
+  border: 1px solid rgb(16, 22, 41, 0.5);
+  border-radius: 15px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+  background: $foreground;
+  color: $primaryColor;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    color: $primaryColor;
+  }
+
+  button {
+    border-radius: 20px;
+  }
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.fileZone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0 1rem 1rem 1rem;
+
+  svg {
+    margin: 0.5rem;
+    margin-top: 0;
+    font-size: 2.5rem;
+  }
+}
+
+.fileZone:focus {
+  outline: none;
+}
+
+.uploadedTray {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 14rem;
+  height: 80%;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin: 1rem 0;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+
+  border-left: solid 2px $secondaryColor;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgb(62, 67, 91);
+    border-radius: 5px;
+    margin: 0 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $secondaryColor;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $primaryColor;
+  }
+
+  .uploadedFile {
+    width: 100%;
+    color: $secondaryColor;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    margin: 0.25rem 0;
+
+    .spacer {
+      flex-grow: 1;
+    }
+
+    svg {
+      font-size: 1.25rem;
+      margin: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .end {
+      @extend .pop;
+    }
+
+    .end:hover {
+      color: $primaryColor;
+    }
+
+    .info {
+      width: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-grow: 0;
+      text-align: left;
+
+      h2 {
+        width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      h2:hover {
+        -webkit-animation: slide 5s linear;
+        -moz-animation: slide 5s linear;
+        -o-animation: slide 5s linear;
+        animation: slide 5s linear;
+        width: 100%;
+        right: 0px;
+        text-overflow: clip;
+      }
+
+      @-webkit-keyframes slide {
+        0% {
+          right: -100px;
+        }
+        50% {
+          right: -50px;
+        }
+        100% {
+          right: -0px;
+        }
+      }
+    }
+  }
+}
+
+#ocrCard {
+  flex-direction: row;
+  height: 12rem;
+}
+
+.instructions {
+  @extend .uploadedTray;
+  overflow: hidden;
+
+  align-items: center;
+  justify-content: center;
+
+  color: $secondaryColor;
+  font-size: 12px;
+
+  svg {
+    font-size: 1.5rem;
+  }
+
+  padding-left: 2rem;
+  padding-right: 1.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  #ocrCard {
+    flex-direction: column;
+    height: 18rem;
+  }
+
+  .uploadedTray {
+    border-left: none;
+    margin-left: 0;
+    padding-left: 0.5rem;
+  }
+
+  .instructions {
+    padding-left: 1.5rem;
+  }
+}
+
+/* #endregion */
+
+// Select menu
+/* #region */
+
+.select {
+  margin: 0.35rem 0.5rem;
+  width: 8rem;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgb(62, 67, 91);
+    border-radius: 5px;
+    margin: 0 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $secondaryColor;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $primaryColor;
+  }
+
+  color: black;
+  text-align: left;
+}
+
+.reactSelect__indicator {
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.reactSelect__control {
+  background: $background !important;
+}
+
+.reactSelect__placeholder {
+  color: $secondaryColor !important;
+}
+
+.reactSelect__single-value {
+  color: white !important;
+}
+
+.reactSelect__input {
+  color: white !important;
+}
+
+.reactSelect__indicator:hover {
+  color: white !important;
+}
+
+.reactSelect__menu {
+  background: $foreground !important;
+  color: $secondaryColor !important;
+
+  .reactSelect__option:hover {
+    background: #303c61e6 !important;
+  }
+
+  .reactSelect__option--is-focused {
+    background: $foreground !important;
+  }
+
+  .reactSelect__option--is-selected {
+    background: $foreground !important;
+  }
+}
+
+/* #endregion */
+
+#convertButton {
+  margin: 0.5rem 0.5rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.highlight {
+  color: $highlight;
+}
+
+footer {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: 0;
+  padding: 1rem 1rem;
+
+  text-align: center;
+  font-size: 0.75rem;
+}
