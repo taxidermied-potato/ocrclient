@@ -27,9 +27,7 @@ const IndexPage = () => {
       </section>
       <Ocr />
       <section className="large">
-        <Stat>
-          
-        </Stat>
+        <Stat />
       </section>
     </Layout>
   )

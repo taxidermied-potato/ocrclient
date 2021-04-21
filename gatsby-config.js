@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/ocrclient",
   siteMetadata: {
     title: `ocr.io`,
     description: `desc`,
